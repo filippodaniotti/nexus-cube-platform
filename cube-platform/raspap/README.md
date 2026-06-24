@@ -8,6 +8,8 @@ We recommend the [quick installation script](https://docs.raspap.com/get-started
 curl -sL https://install.raspap.com | bash -s -- --help
 ```
 
+<!-- TODO add build instructions for hostapd -->
+
 We provide some example configurations. Make sure to substitute the network interface to match your hardware
 
 ```bash
