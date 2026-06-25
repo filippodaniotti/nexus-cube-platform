@@ -1,4 +1,4 @@
-# RT Kernel with UMPD support
+# RT Kernel with UMP support
 
 Install dependencies
 

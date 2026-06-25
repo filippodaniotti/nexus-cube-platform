@@ -3,7 +3,6 @@
 This folder contains instructions to setup the software stack used by the *Muse Cube* embedded platform. The system is built on open-source components that provide operating system services, wireless networking, service discovery, low-latency audio/MIDI routing, and the main audio processing host.
 
 ## Stack
-
 - **Linux**: Base operating system for the embedded platform, handling device support, networking, and audio/MIDI I/O.
 - **RaspAP + hostapd**: Used to configure the Cube as a wireless access point so other devices can connect directly without external network infrastructure.
 - **dnsmasq**: Lightweight DNS and DHCP service for local address assignment and small-network support.
