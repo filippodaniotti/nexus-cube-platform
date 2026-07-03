@@ -1,0 +1,13 @@
+[Unit]
+Description=jacknetumpd service to connect to the keyboard
+DefaultDependencies=no
+After=pipewire.service pipewire-jack.service wireplumber.service
+Before=sushi.service
+
+[Service]
+Type=exec
+ExecStart=/usr/bin/bash pw-jack /usr/bin/jacknetumpd --localport 5504 --remoteport 5504 --endpoint cube-keyboard --interface wlan0
+TimeoutStartSec=0
+
+[Install]
+WantedBy=sushi.service

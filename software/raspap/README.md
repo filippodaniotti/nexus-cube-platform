@@ -8,51 +8,49 @@ We recommend the [quick installation script](https://docs.raspap.com/get-started
 curl -sL https://install.raspap.com | bash -s -- --help
 ```
 
-We recommend to build `hostapd` from scratch. The upstream release (as of version 2.10) features a bug in network device regulatory domain assignment, which causes potential issues if `hostapd` takes control of the network interface at startup. This behavior can be corracting applying [this patch](https://tildearrow.org/?p=post&month=7&year=2022&item=lar)
+We recommend to build `hostapd` from scratch. The upstream release (as of version 2.10) features a bug in network device regulatory domain assignment, which causes potential issues if `hostapd` takes control of the network interface at startup. This behavior can be fixed applying [this patch](https://tildearrow.org/?p=post&month=7&year=2022&item=lar)
 
-To build `hostapd`:
-
-- clone the repository
+To build `hostapd` clone the repository
 
 ```bash
 git clone git://w1.fi/hostap.git
 cd hostap
 ```
 
-- install build dependencies
+install build dependencies
 
 ```bash
 sudo apt update
 sudo apt install -y build-essential pkg-config libssl-dev libnl-3-dev libnl-genl-3-dev
 ```
 
-- apply the patch
+apply the patch
 
 ```bash
 wget https://tildearrow.org/storage/hostapd-2.10-lar.patch
 patch -p1 < hostapd-2.10-lar.patch
 ```
 
-- prepare build config
+prepare build config
 
 ```bash
 cd hostap/hostapd
 cp defconfig .config
 ```
 
--build
+build
 
 ```bash
 make -j"$(nproc)"
 ```
 
--replace the `hostapd` binary from your package manager with the patched one
+replace the `hostapd` binary from your package manager with the patched one
 
 ```bash
 sudo cp hostapd /usr/bin/hostapd
 ```
 
-We provide some example configurations. Make sure to substitute the network interface to match your hardware
+We provide some example configurations for both `hostapd` and `dnsmasqd`. Make sure to substitute the network interface to match your hardware
 
 ```bash
 sudo cp hostapd.conf /etc/hostapd/

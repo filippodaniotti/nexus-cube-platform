@@ -1,0 +1,13 @@
+[Unit]
+Description=publish jacknetumpd Smartphone service over mDNS using avahi
+DefaultDependencies=no
+After=jacknetumpd-keyboard.service
+
+[Service]
+Type=exec
+ExecStart=avahi-publish-service --domain=local -s cube-pphone _midi2._udp 5505
+TimeoutStartSec=0
+
+[Install]
+
+

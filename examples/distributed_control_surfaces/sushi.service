@@ -1,0 +1,16 @@
+[Unit]
+Description=Sushi DAW systemd unit 
+After=pipewire.service pipewire-pulse.service wireplumber.service jacknetumpd-keyboard.service jacknetumpd-hmd.service
+Wants=pipewire.service pipewire-pulse.service wireplumber.service jacknetumpd-keyboard.service jacknetumpd-hmd.service
+
+Before=
+
+[Service]
+ExecStart=/usr/bin/bash /usr/bin/sushi_nexus.sh
+ExecReload=/usr/bin/bash /usr/bin/sushi_nexus.sh
+Type=exec
+Restart=no
+
+
+[Install]
+WantedBy=default.target

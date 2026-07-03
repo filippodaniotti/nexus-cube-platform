@@ -1,0 +1,12 @@
+[Unit]
+Description=publish jacknetumpd keyboard service over mDNS using avahi
+DefaultDependencies=no
+After=jacknetumpd-keyboard.service
+
+[Service]
+Type=exec
+ExecStart=/usr/bin/bash avahi-publish-service --domain=local -s cube-keyboard _midi2._udp 5504
+TimeoutStartSec=0
+
+[Install]
+
